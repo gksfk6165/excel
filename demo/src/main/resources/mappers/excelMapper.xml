@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.excelMapper">
+   <select id="excelselect"  resultType="com.example.demo.vo.Excelvo">
+      SELECT 
+            *
+      FROM 
+            cell_sample_type;
+   </select>
+   
+   <insert id="excelinsert" parameterType="map" >
+      INSERT INTO 
+            cell_sample_type 
+      VALUES
+            (seq ,#{group_code},#{sample_code},#{depth1},#{depth2},#{depth3},#{sample_file_name});
+   
+   </insert>
+   
+   <select id="selectseq" resultType="int" parameterType="String">
+      SELECT
+         seq
+      FROM
+          cell_sample_type
+      WHERE
+         sample_file_name = #{sample_file_name};
+   
+   </select>
+
+	<insert id="excelinsertcelldate" parameterType="list">
+		INSERT INTO
+		cell_data
+		VALUES
+		<foreach collection="list" item="excel" separator=",">
+			(seq,
+			#{excel.type_seq},
+			#{excel.data_point},
+			#{excel.test_time},
+			#{excel.date_time},
+			#{excel.step_time},
+			#{excel.step_index},
+			#{excel.cycle_index},
+			#{excel.current},
+			#{excel.voltage},
+			#{excel.charge_capacity},
+			#{excel.discharge_capacity},
+			#{excel.charge_energy},
+			#{excel.discharge_energy},
+			#{excel.dv_dt},
+			#{excel.internal_resistance},
+			#{excel.is_fc_data},
+			#{excel.ac_impedance},
+			#{excel.aci_phase_angle},
+			#{excel.temperature_1},
+			#{excel.temperature_2}
+			)
+		</foreach>
+	</insert>
+</mapper>

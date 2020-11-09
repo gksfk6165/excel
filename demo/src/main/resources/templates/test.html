@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/excel.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="../js/excel.js"></script>
+<title>excel</title>
+</head>
+<body>
+	<div>
+		<form th:action="@{/excel/read}" method="POST" enctype="multipart/form-data">
+		<div class="group_code">
+			<span>group code 체크 : </span>
+			<input type="radio" name="group_code" value="01"><span class="group_code_name">Cyclindrical Cells</span>
+			<input type="radio" name="group_code" value="02"><span class="group_code_name">Prismatic Cells</span>
+			<input type="radio" name="group_code" value="03"><span class="group_code_name">Pouch Cells</span>
+			<input type="radio" name="group_code" value="04"><span class="group_code_name">Other Cells</span>
+		</div>
+		<div class="sample_code">
+			<span>sample code 체크 : </span>
+			<input type="radio" name="sample_code" value="01">INR 18650-20R
+			<input type="radio" name="sample_code" value="02">A123
+			<input type="radio" name="sample_code" value="03">CS2
+			<input type="radio" name="sample_code" value="04">CX2
+			<input type="radio" name="sample_code" value="05">PL Sample
+			<input type="radio" name="sample_code" value="06">K2
+		</div>
+		<div class="depth">
+			depth1 : <input type="text" class="depth1" name="depth1"> 
+			depth2 : <input type="text" class="depth2" name="depth2"> 
+			depth3 : <input type="text" class="depth3" name="depth3">
+		</div>
+		<div class="excelfile">
+				<input type="file" th:name="file"> <input th:type="submit" class="excel_submit" value="제출" />
+		</div>
+			</form>
+	</div>
+</body>
+</html>
