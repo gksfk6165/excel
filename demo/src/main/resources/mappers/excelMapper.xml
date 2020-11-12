@@ -50,9 +50,34 @@
 			#{excel.is_fc_data},
 			#{excel.ac_impedance},
 			#{excel.aci_phase_angle},
-			#{excel.temperature_1},
-			#{excel.temperature_2}
+			<!-- temperature_1 가 null 값일때 0 ->null 바꿔서 db 적재 -->
+			<choose>
+				<when test="excel.temperature_1 == 0">
+					NULL,
+				</when>
+				<otherwise>
+					#{excel.temperature_1,jdbcType=DOUBLE},
+				</otherwise>
+			</choose>
+			<!-- temperature_2 가 null 값일때 0 ->null 바꿔서 db 적재 -->
+			<choose>
+				<when test="excel.temperature_2 == 0">
+					NULL
+				</when>
+				<otherwise>
+					#{excel.temperature_2,jdbcType=DOUBLE}
+				</otherwise>
+			</choose>
 			)
 		</foreach>
 	</insert>
+	
+	
+	<select id="lastseqnum" resultType="int">
+		SELECT 
+			count(*) 
+		From 
+			cell_sample_type;
+	
+	</select>
 </mapper>

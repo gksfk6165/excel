@@ -47,9 +47,9 @@ public class celldatavo {
 			private double ac_impedance;
 			@JsonProperty(value="ACI_Phase_Angle(Deg)")
 			private double aci_phase_angle;
-			@JsonProperty(value = "temperature_1")
+			@JsonProperty(value = "Temperature (C)_1")
 			private double temperature_1;
-			@JsonProperty(value = "temperature_2")
+			@JsonProperty(value = "Temperature (C)_2")
 			private double temperature_2;
 			
 			
@@ -75,6 +75,8 @@ public class celldatavo {
 				sb.append(" ,Is_FC_Data :" +is_fc_data);
 				sb.append(" ,AC_Impedance(Ohm) :" +ac_impedance);
 				sb.append(" ,ACI_Phase_Angel(Deg) :" +aci_phase_angle);
+				sb.append(" ,temperature_1 :" +temperature_1);
+				sb.append(" ,temperature_2 :" +temperature_2);
 				return sb.toString();
 			}
 }

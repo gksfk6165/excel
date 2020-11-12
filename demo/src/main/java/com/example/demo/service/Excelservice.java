@@ -33,7 +33,7 @@ public class Excelservice {
 	}
 
 	// cell_sample_type 적재
-	public void insertName(HashMap<String, String> hmap) throws Exception {
+	public void insertName(HashMap<String, Object> hmap) throws Exception {
 		dao.insertName(hmap);
 	}
 	

@@ -23,7 +23,7 @@ public class Exceldao {
 	
 	
 	
-	public void insertName(HashMap<String, String> hmap) {
+	public void insertName(HashMap<String, Object> hmap) {
 	sql.insert("mappers.excelMapper.excelinsert",hmap); 
 	}
 	
@@ -36,6 +36,11 @@ public class Exceldao {
 		return sql.selectOne("mappers.excelMapper.selectseq",filename);
 	}
 	
+	
+	//마지막 sample_type seq 번호
+	public int lastseqnum() {
+		return sql.selectOne("mappers.excelMapper.lastseqnum");
+	}
 	 
 }
 

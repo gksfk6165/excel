@@ -54,7 +54,7 @@ public class ExcelController {
 		System.out.println("depth3 이름 : " + depth3);
 		
 		//cell_sample_type 에들어갈 데이터들 
-		HashMap<String, String> hmap = new HashMap<>();
+		HashMap<String, Object> hmap = new HashMap<>();
 		hmap.put("group_code", group_code);
 		hmap.put("sample_code", sample_code);
 		hmap.put("depth1", depth1);
